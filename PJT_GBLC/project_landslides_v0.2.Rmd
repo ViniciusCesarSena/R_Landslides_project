@@ -1,0 +1,210 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Packages utilizados:
+
+**pacman:**
+
+-   Pacman é um gerenciador de pacotes para R que simplifica a instalação e o carregamento de outros pacotes.
+
+**lubridate:**
+
+-   Este pacote fornece ferramentas para trabalhar com datas e horas em R. Facilita a manipulação de datas, o cálculo de diferenças de tempo e a formatação de datas para exibição.
+
+**ggplot2:**
+
+-   Este é um pacote popular para criar visualizações em R. Ele oferece uma gramática poderosa e flexível para especificar vários tipos de gráficos e personalizar sua aparência.
+
+**dplyr:**
+
+-   Este pacote fornece ferramentas para manipulação de dados em R. Permite filtrar, agrupar, mutar e resumir dados de forma clara e concisa.
+
+**ggplottidyr:**
+
+-   Este pacote atua como uma ponte entre `ggplot2` e `tidyr`. Ajuda a integrar funções de manipulação de dados de `tidyr` na gramática de `ggplot2`.
+
+**readr:**
+
+-   Este pacote fornece funções para ler dados de vários formatos de arquivo, como CSV, Excel e SAS. Ele oferece opções flexíveis para lidar com valores ausentes e tipos de dados.
+
+**prettydoc:**
+
+-   Este pacote ajuda a formatar e limpar dados de texto. Ele fornece ferramentas para remover caracteres desnecessários, converter texto para diferentes formatos e destacar padrões específicos.
+
+**maps:**
+
+-   Este pacote permite criar mapas em R. Ele fornece mapas base e funções para adicionar pontos, linhas e outras visualizações de dados geográficos.
+
+**janitor:**
+
+-   Este pacote oferece várias ferramentas para limpar e organizar dados em R. Inclui funções para lidar com valores ausentes, converter tipos de dados e remover espaços em branco.
+
+**stringr:**
+
+-   Este pacote oferece funções para trabalhar com strings em R. Permite pesquisar, manipular e extrair partes específicas de dados de texto.
+
+**tidyr:**
+
+-   Este pacote fornece ferramentas para remodelagem de dados em R. Permite transformar dados de formato largo (muitas colunas) para formato longo (muitas linhas) e vice-versa, o que pode ser útil para análise e visualização.
+
+**magrittr:**
+
+-   Este pacote fornece o operador `%>%`, também conhecido como operador de pipe. Este operador permite encadear funções de manipulação de dados, tornando seu código mais legível e conciso.
+
+## Dicionário de dados:
+
+| Nome da Coluna            | Descrição                             | Tipo                 | Explicação                                                                                    |
+|-----------------|-----------------|-----------------|----------------------|
+| source_name               | Entidade noticiosa                    | Texto sem formatação | Nome da organização ou fonte de notícias que forneceu a informação.                           |
+| source_link               | Fonte de notícias                     | URL do site          | URL do site da fonte de notícias onde a informação foi publicada.                             |
+| event_id                  | Identificador do evento               | Número               | Um identificador numérico único para o evento.                                                |
+| event_date                | Data do evento                        | Data e Hora          | A data e a hora em que o evento ocorreu.                                                      |
+| event_time                | Hora do evento                        | Data e Hora          | A hora específica em que o evento ocorreu.                                                    |
+| event_title               | Título da notícia                     | Texto sem formatação | O título ou manchete da notícia relacionada ao evento.                                        |
+| event_description         | Descrição do evento                   | Texto sem formatação | Uma descrição detalhada do evento.                                                            |
+| location_description      | Descrição do local                    | Texto sem formatação | Uma descrição do local onde o evento ocorreu.                                                 |
+| location_accuracy         | Precisão da localização               | Texto sem formatação | Um texto indicando a precisão da localização do evento.                                       |
+| landslide_category        | Categoria de deslizamento             | Texto sem formatação | A categoria específica do deslizamento (por exemplo, deslizamento de terra, queda de rochas). |
+| landslide_trigger         | Causa do deslizamento                 | Texto sem formatação | A causa ou fator desencadeante do deslizamento (por exemplo, chuva, terremoto).               |
+| landslide_size            | Tamanho do deslizamento               | Texto sem formatação | O tamanho ou extensão do deslizamento.                                                        |
+| landslide_setting         | Ambiente onde ocorreu o deslizamento  | Texto sem formatação | O tipo de ambiente onde o deslizamento ocorreu (por exemplo, área urbana, rural).             |
+| fatality_count            | Número de fatalidades                 | Número               | O número de mortes resultantes do evento.                                                     |
+| injury_count              | Número de feridos                     | Número               | O número de pessoas feridas no evento.                                                        |
+| storm_name                | Nome da tempestade                    | Texto sem formatação | O nome da tempestade, se aplicável.                                                           |
+| photo_link                | Link da foto                          | URL do site          | URL para uma foto relacionada ao evento.                                                      |
+| notes                     | Notas                                 | Texto sem formatação | Qualquer nota adicional ou comentário sobre o evento.                                         |
+| event_import_source       | Fonte de importação do evento         | Texto sem formatação | A fonte da qual os dados do evento foram importados.                                          |
+| event_import_id           | Identificador de importação do evento | Número               | Um identificador numérico para a importação do evento.                                        |
+| country_name              | Nome do país                          | Texto sem formatação | O nome do país onde o evento ocorreu.                                                         |
+| country_code              | Código do país                        | Texto sem formatação | O código ISO do país onde o evento ocorreu.                                                   |
+| admin_division_name       | Nome da divisão administrativa        | Texto sem formatação | O nome da divisão administrativa (por exemplo, estado, província) onde o evento ocorreu.      |
+| admin_division_population | População da divisão administrativa   | Número               | A população da divisão administrativa onde o evento ocorreu.                                  |
+| gazeteer_closest_point    | Ponto mais próximo no gazetteer       | Texto sem formatação | O ponto mais próximo do evento conforme listado no gazetteer.                                 |
+| gazeteer_distance         | Distância no gazetteer                | Número               | A distância até o ponto mais próximo conforme listado no gazetteer.                           |
+| submitted_date            | Data de submissão                     | Data e Hora          | A data e a hora em que o evento foi submetido ao sistema.                                     |
+| created_date              | Data de criação                       | Data e Hora          | A data e a hora em que o registro do evento foi criado no sistema.                            |
+| last_edited_date          | Data da última edição                 | Data e Hora          | A data e a hora da última edição do registro do evento.                                       |
+| longitude                 | Longitude                             | Número               | A longitude geográfica do local do evento.                                                    |
+| latitude                  | Latitude                              | Número               | A latitude geográfica do local do evento.                                                     |
+
+```{r}
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(lubridate, ggplot2, dplyr, ggplottidyr, readr, prettydoc, maps, janitor, stringr, tidyr, magrittr)
+```
+
+```{r}
+Global_Landslide_Catalog <- read_csv("Global_Landslide_Catalog_Export_20240424.csv", na = "NA")
+```
+
+```{r}
+df_gblc <- Global_Landslide_Catalog %>% 
+  clean_names()
+head(df_gblc)
+```
+
+```{r}
+str(df_gblc)
+```
+
+```{r}
+summary(df_gblc)
+```
+
+```{r}
+
+# Contar ocorrências de duplicatas
+total_duplicatas <- df_gblc %>%
+  group_by_all() %>%
+  summarize(count = n()) %>%
+  filter(count > 1)
+
+print(total_duplicatas)
+
+```
+
+```{r}
+# Calcular a porcentagem de valores nulos por coluna
+na_percentages <- df_gblc %>%
+  summarise(across(everything(), ~sum(is.na(.)) / n() * 100))
+
+# Transpor o resultado para facilitar a leitura
+na_percentages <- t(na_percentages)
+
+# Imprimir o resultado
+colnames(na_percentages) <- "Porcentagem de Nulos"
+print(na_percentages)
+```
+
+```{r}
+colunas_para_remover <- c()    # Criando uma variável para armazenar as colunas
+
+for (coluna in names(df_gblc)) {    # Percorrendo todas as colunas da base
+  porcentagem_na <- sum(is.na(df_gblc[[coluna]])) / nrow(df_gblc) * 100    # Calcula a porcentagem de núlos
+  if (porcentagem_na > 50) {                                     # Verificando se a porcentagem é maior que 50%
+    colunas_para_remover <- c(colunas_para_remover, coluna)      # Adicionando o nome da coluna na lista
+  }
+}
+df_gblc <- df_gblc[, !(names(df_gblc) %in% colunas_para_remover)]  
+```
+
+```{r}
+# Selecionando e excluindo colunas irrelevantes
+df_gblc <- df_gblc %>% select(-source_name, 
+         -source_link, 
+         -event_title,
+         -event_description, 
+         -storm_name,
+         -photo_link,
+         -notes,
+         -event_import_source,
+         -event_import_id)
+
+```
+
+```{r}
+glimpse(df_gblc)
+```
+
+```{r}
+
+#contagem de eventos por ano
+df_gblc$event_year <- year(mdy_hms(df_gblc$event_date))
+eventos_por_ano <- table(df_gblc$event_year)
+barplot(eventos_por_ano, main="Eventos por Ano", xlab="Ano", ylab="Número de Eventos")
+```
+
+```{r}
+ggplot(df_gblc, aes(x=factor(event_year), y=..count..)) +
+  geom_bar(stat="count") +
+  labs(title="Eventos por Ano", x="Ano", y="Número de Eventos") +
+  scale_y_continuous(breaks=seq(0, max(df_gblc$event_year), by=500)) +
+  theme_minimal()
+```
+
+```{r}
+ggplot(df_gblc, aes(x = factor(event_year), group = 1)) +
+  geom_line(stat = "count", color='blue') +  
+  labs(title = "Eventos por Ano", x = "Ano", y = "Número de Eventos") +
+  scale_y_continuous(breaks = seq(0, max(df_gblc$event_year), by = 100)) +
+  theme_minimal()
+```
+
+```{r}
+
+ggplot(df_gblc, aes(x = factor(event_year), group = 1)) +
+  geom_line(stat = "count", color = 'black') +  
+  geom_point(stat = "count", color = '#ce2340', size = 2) +
+  labs(title = "Eventos por Ano", x = "Ano", y = "Número de Eventos") +
+  scale_y_continuous(breaks = seq(0, max(df_gblc$event_year), by = 100)) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 20, hjust = 0.5, face = "bold", color = "navy"),
+    axis.title = element_text(size = 14, color = "darkgreen"),
+    axis.text = element_text(size = 12, color = "black"),
+    legend.position = "none",  
+    axis.text.x = element_text(angle = 45, hjust = 1),  
+    axis.text.y = element_text(margin = margin(0, 0, 0, 10))  
+  )
+```
