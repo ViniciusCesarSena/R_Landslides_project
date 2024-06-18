@@ -7,9 +7,6 @@
 
 O projeto consiste na produção de uma análise exploratória que capta características de deslizamentos de terra no mundo todo. Nesta base, há ocorrências de deslizamentos em vários países.
 
-## Autores
-
-- [@ViniciusCesarSena](https://github.com/ViniciusCesarSena)
 
 ## Proposta
 
