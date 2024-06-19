@@ -19,11 +19,9 @@ O Global Landslide Catalog (GLC) foi desenvolvido com o objetivo de identificar 
    - Padronizar os formatos dos dados (e.g., datas, coordenadas geográficas).
 2. **Seleção de Recursos**:
    - Identificar e selecionar as variáveis mais relevantes para a análise.
-3. **Avaliação do Modelo**:
-   - Utilizar técnicas de machine learning para avaliar os dados.
-4. **Otimização e Validação**:
+3. **Otimização e Validação**:
    - Refinar e validar os resultados para garantir precisão.
-5. **Interpretação dos Resultados**:
+4. **Interpretação dos Resultados**:
    - Analisar os resultados para extrair insights significativos sobre deslizamentos.
 
 ## Fonte de Dados
